@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistik — TO-TYPE SMK Otomotif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dash-body">
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="TO-TYPE Beranda">
+        <div class="navbar__logo-icon"><span>T</span></div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">TOTYPE</span>
+          <span class="navbar__logo-sub">SMK OTOMOTIF</span>
+        </div>
+      </a>
+      <div class="navbar__links">
+        <a href="dashboard.html" class="navbar__link">⌨ Latihan</a>
+        <a href="statistik.html" class="navbar__link navbar__link--active">📊 Statistik</a>
+        <a href="peringkat.html" class="navbar__link">🏆 Peringkat</a>
+      </div>
+      <div class="navbar__user">
+        <button class="navbar__logout" id="btn-logout">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M7 3H4a1 1 0 00-1 1v12a1 1 0 001 1h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13 13l4-3-4-3M17 10H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Keluar
+        </button>
+      </div>
+    </div>
+  </nav>
+  <main class="dash-main" role="main">
+    <div class="dash-container" style="align-items:center;justify-content:center;min-height:50vh;text-align:center;gap:16px;">
+      <div style="font-size:56px">📊</div>
+      <h1 style="font-size:24px;font-weight:800;color:#e8eaf0">Halaman Statistik</h1>
+      <p style="color:#7a8499;font-size:14px;max-width:360px">Halaman ini akan menampilkan grafik WPM, akurasi, dan riwayat sesi latihanmu. Akan segera hadir!</p>
+      <a href="dashboard.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:linear-gradient(135deg,#3b82f6,#6366f1);border-radius:10px;color:#fff;font-weight:700;text-decoration:none;font-size:13px">← Kembali ke Dashboard</a>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="toast__icon" aria-hidden="true"></span>
+    <span class="toast__msg" id="toast-msg"></span>
+  </div>
+  <script type="module">
+    import { handleLogout } from './auth.js';
+    document.getElementById('btn-logout')?.addEventListener('click', handleLogout);
+  </script>
+</body>
+</html>

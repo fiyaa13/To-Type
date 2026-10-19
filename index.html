@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TO-TYPE — Latihan Mengetik SMK Otomotif</title>
+  <meta name="description" content="Platform latihan mengetik untuk siswa SMK Otomotif. Belajar mengetik dari nol, langkah demi langkah dengan metode yang terstruktur." />
+  <meta name="keywords" content="latihan mengetik, SMK otomotif, typing practice, touch typing" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Decorations -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Floating Keys Decoration -->
+  <div class="floating-keys" aria-hidden="true">
+    <span class="key-float" style="--delay:0s;--x:8%;--y:15%">A</span>
+    <span class="key-float" style="--delay:0.8s;--x:92%;--y:20%">S</span>
+    <span class="key-float" style="--delay:1.6s;--x:5%;--y:70%">D</span>
+    <span class="key-float" style="--delay:2.4s;--x:88%;--y:65%">F</span>
+    <span class="key-float" style="--delay:3.2s;--x:15%;--y:88%">J</span>
+    <span class="key-float" style="--delay:1.2s;--x:78%;--y:85%">K</span>
+    <span class="key-float" style="--delay:2.0s;--x:50%;--y:5%">⌨</span>
+  </div>
+
+  <!-- Main Container -->
+  <main class="main-wrapper" role="main">
+    <div class="card" id="main-card">
+
+      <!-- Header / Branding -->
+      <header class="card__header">
+        <div class="logo" aria-label="TO-TYPE Logo">
+          <div class="logo__icon" aria-hidden="true">
+            <span class="logo__letter">T</span>
+          </div>
+          <div class="logo__text">
+            <span class="logo__name">TOTYPE</span>
+            <span class="logo__sub">SMK OTOMOTIF</span>
+          </div>
+        </div>
+
+        <div class="badge" role="note">
+          <svg class="badge__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="5" cy="8" r="1.5" fill="currentColor"/>
+            <rect x="8" y="6.5" width="5" height="1.5" rx="0.75" fill="currentColor"/>
+            <rect x="8" y="9" width="3" height="1.5" rx="0.75" fill="currentColor"/>
+          </svg>
+          Lab Komputer SMK Otomotif
+        </div>
+
+        <p class="tagline">
+          Belajar mengetik dari nol, <em>langkah demi langkah</em>
+        </p>
+      </header>
+
+      <!-- Auth Tab Switcher -->
+      <div class="auth-tabs" role="tablist" aria-label="Mode Autentikasi">
+        <button type="button" class="auth-tab auth-tab--active" id="tab-masuk" role="tab" aria-selected="true" aria-controls="panel-masuk">Masuk</button>
+        <button type="button" class="auth-tab" id="tab-daftar" role="tab" aria-selected="false" aria-controls="panel-daftar">Daftar Baru</button>
+      </div>
+
+      <!-- Form -->
+      <form class="form" id="form-mulai" novalidate>
+
+        <!-- Panel: Daftar Baru (hanya tampil saat tab Daftar aktif) -->
+        <div id="panel-daftar" class="auth-panel" hidden>
+
+          <!-- Nama Lengkap -->
+          <div class="form-group" id="group-nama">
+          <label class="form-label" for="input-nama">
+            Nama Lengkap Siswa
+            <span class="form-hint">Contoh: Budi Santoso</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M3 17c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <input
+              type="text"
+              id="input-nama"
+              name="nama"
+              class="form-input"
+              placeholder="Tulis nama lengkapmu..."
+              autocomplete="name"
+              maxlength="60"
+              aria-required="true"
+              aria-describedby="error-nama"
+            />
+          </div>
+          <span class="form-error" id="error-nama" role="alert" aria-live="polite"></span>
+        </div>
+
+          <!-- Row: No Absen + Kelas -->
+          <div class="form-row" id="row-absen-kelas">
+
+            <!-- No Absen -->
+            <div class="form-group form-group--absen" id="group-absen">
+              <label class="form-label" for="input-absen">
+                No. Absen
+                <span class="form-hint">Maks 36</span>
+              </label>
+              <div class="input-wrapper input-wrapper--absen">
+                <span class="input-prefix" aria-hidden="true">#</span>
+                <input
+                  type="number"
+                  id="input-absen"
+                  name="absen"
+                  class="form-input form-input--absen"
+                  placeholder="01 – 36"
+                  min="1"
+                  max="36"
+                  aria-describedby="error-absen"
+                />
+              </div>
+              <span class="form-error" id="error-absen" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Kelas / Jurusan -->
+            <div class="form-group form-group--kelas" id="group-kelas">
+              <label class="form-label" for="input-kelas">
+                Kelas / Jurusan
+                <span class="form-hint">Pilihan</span>
+              </label>
+              <div class="input-wrapper input-wrapper--select">
+                <span class="input-icon input-icon--select" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M6 8h8M6 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <select id="input-kelas" name="kelas" class="form-select" aria-describedby="error-kelas">
+                  <option value="" disabled selected>-- Pilih Kelas --</option>
+                  <optgroup label="Teknik Kendaraan Ringan Otomotif (TKRO)">
+                    <option value="X TKRO 1">X TKRO 1 (Kendaraan Ringan)</option>
+                    <option value="X TKRO 2">X TKRO 2 (Kendaraan Ringan)</option>
+                    <option value="XI TKRO 1">XI TKRO 1 (Kendaraan Ringan)</option>
+                    <option value="XI TKRO 2">XI TKRO 2 (Kendaraan Ringan)</option>
+                    <option value="XII TKRO 1">XII TKRO 1 (Kendaraan Ringan)</option>
+                    <option value="XII TKRO 2">XII TKRO 2 (Kendaraan Ringan)</option>
+                  </optgroup>
+                  <optgroup label="Teknik &amp; Bisnis Sepeda Motor (TBSM)">
+                    <option value="X TBSM 1">X TBSM 1 (Sepeda Motor)</option>
+                    <option value="X TBSM 2">X TBSM 2 (Sepeda Motor)</option>
+                    <option value="XI TBSM 1">XI TBSM 1 (Sepeda Motor)</option>
+                    <option value="XI TBSM 2">XI TBSM 2 (Sepeda Motor)</option>
+                    <option value="XII TBSM 1">XII TBSM 1 (Sepeda Motor)</option>
+                    <option value="XII TBSM 2">XII TBSM 2 (Sepeda Motor)</option>
+                  </optgroup>
+                  <optgroup label="Teknik Alat Berat (TAB)">
+                    <option value="X TAB 1">X TAB 1 (Alat Berat)</option>
+                    <option value="XI TAB 1">XI TAB 1 (Alat Berat)</option>
+                    <option value="XII TAB 1">XII TAB 1 (Alat Berat)</option>
+                  </optgroup>
+                </select>
+              </div>
+              <span class="form-error" id="error-kelas" role="alert" aria-live="polite"></span>
+            </div>
+
+          </div><!-- /.form-row -->
+        </div><!-- /#panel-daftar -->
+
+        <!-- Panel: Masuk (selalu tampil, muncul di kedua mode) -->
+        <div id="panel-masuk">
+
+        <!-- Email -->
+        <div class="form-group" id="group-email">
+          <label class="form-label" for="input-email">
+            Email
+            <span class="form-hint">Contoh: budi@smkotomotif.sch.id</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none">
+                <rect x="2" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <input
+              type="email"
+              id="input-email"
+              name="email"
+              class="form-input"
+              placeholder="Masukkan email aktifmu..."
+              autocomplete="email"
+              aria-required="true"
+              aria-describedby="error-email"
+            />
+          </div>
+          <span class="form-error" id="error-email" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group" id="group-password">
+          <label class="form-label" for="input-password">
+            Password
+            <span class="form-hint">Min. 6 karakter</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none">
+                <rect x="4" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M7 9V6a3 3 0 016 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <input
+              type="password"
+              id="input-password"
+              name="password"
+              class="form-input"
+              placeholder="Buat password rahasiamu..."
+              autocomplete="current-password"
+              minlength="6"
+              aria-required="true"
+              aria-describedby="error-password"
+            />
+            <button type="button" class="btn-toggle-pw" id="btn-toggle-pw" aria-label="Tampilkan/sembunyikan password">
+              <svg id="pw-eye-open" viewBox="0 0 20 20" fill="none" width="17" height="17">
+                <path d="M1 10s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <svg id="pw-eye-closed" viewBox="0 0 20 20" fill="none" width="17" height="17" style="display:none">
+                <path d="M3 3l14 14M8.5 8.7A2.5 2.5 0 0011.3 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M6.2 6.4C4.1 7.5 2.5 9.3 1 10c1.5.7 4 3.5 9 3.5 1.8 0 3.3-.4 4.6-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <span class="form-error" id="error-password" role="alert" aria-live="polite"></span>
+        </div>
+        </div><!-- /#panel-masuk -->
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-mulai" id="btn-mulai">
+          <span class="btn-mulai__text">Mulai Latihan</span>
+          <span class="btn-mulai__icon" aria-hidden="true">→</span>
+          <span class="btn-mulai__ripple"></span>
+        </button>
+
+      </form><!-- /#form-mulai -->
+
+      <!-- Pedoman Section -->
+      <section class="pedoman" aria-labelledby="pedoman-title">
+        <h2 class="pedoman__title" id="pedoman-title">
+          <svg class="pedoman__title-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Pedoman Posisi Duduk Siswa
+        </h2>
+        <ol class="pedoman__list">
+          <li class="pedoman__item">
+            <span class="pedoman__num" aria-hidden="true">1</span>
+            <p>Duduk tegak, pundak santai, layar <strong>sejajar pandangan mata</strong>.</p>
+          </li>
+          <li class="pedoman__item">
+            <span class="pedoman__num" aria-hidden="true">2</span>
+            <p>Letakkan telunjuk di tombol <kbd>F</kbd> dan <kbd>J</kbd> (raba tonjolan kecilnya).</p>
+          </li>
+          <li class="pedoman__item">
+            <span class="pedoman__num" aria-hidden="true">3</span>
+            <p>Jangan takut salah ketik — kita melatih <strong>kebiasaan secara bertahap</strong>.</p>
+          </li>
+          <li class="pedoman__item pedoman__item--note">
+            <span class="pedoman__num pedoman__num--note" aria-hidden="true">✓</span>
+            <p>Siap digunakan untuk komputer lab bengkel SMK.</p>
+          </li>
+        </ol>
+      </section>
+
+    </div><!-- /.card -->
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="toast__icon" aria-hidden="true"></span>
+    <span class="toast__msg" id="toast-msg"></span>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
